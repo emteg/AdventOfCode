@@ -5,7 +5,7 @@ public class Cell2DShould
     [Fact]
     public void HaveAllItsFourNeighborsSetToNull_WhenCreating()
     {
-        Cell2D<byte> cell = new();
+        Cell2D cell = new();
         
         Assert.Null(cell.Up);
         Assert.Null(cell.Right);
@@ -16,11 +16,11 @@ public class Cell2DShould
     [Fact]
     public void HaveTheCorrectNeighbor_AndConnectBothWays_WhenConnectingToAnotherCell()
     {
-        Cell2D<byte> cell = new();
-        Cell2D<byte> upNeighbor = new();
-        Cell2D<byte> rightNeighbor = new();
-        Cell2D<byte> downNeighbor = new();
-        Cell2D<byte> leftNeighbor = new();
+        Cell2D cell = new();
+        Cell2D upNeighbor = new();
+        Cell2D rightNeighbor = new();
+        Cell2D downNeighbor = new();
+        Cell2D leftNeighbor = new();
 
         cell.ConnectUp(upNeighbor);
         cell.ConnectRight(rightNeighbor);
@@ -40,11 +40,11 @@ public class Cell2DShould
     [Fact]
     public void NotConnectBack_WhenConnectingToAnotherCell_GivenNotBothWays()
     {
-        Cell2D<byte> cell = new();
-        Cell2D<byte> upNeighbor = new();
-        Cell2D<byte> rightNeighbor = new();
-        Cell2D<byte> downNeighbor = new();
-        Cell2D<byte> leftNeighbor = new();
+        Cell2D cell = new();
+        Cell2D upNeighbor = new();
+        Cell2D rightNeighbor = new();
+        Cell2D downNeighbor = new();
+        Cell2D leftNeighbor = new();
 
         cell.ConnectUp(upNeighbor, false);
         cell.ConnectRight(rightNeighbor, false);
