@@ -1,7 +1,10 @@
-# puzzle input
-1.txt
-2.txt
+# rider files
 .idea/
+
+# puzzle input
+input.txt
+input1.txt
+input2.txt
 
 # c# files
 obj/
