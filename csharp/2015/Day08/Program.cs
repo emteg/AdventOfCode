@@ -9,27 +9,25 @@ public static class Program
         int totalCodeLength;
         int totalMemoryLength;
         
-        string sampleLines = """
+        string sample = """
                              ""
                              "abc"
                              "aaa\"aaa"
                              "\x27"
                              """;
-        IEnumerable<string> lines = sampleLines.Lines();
-        (totalCodeLength, totalMemoryLength) = Part1(lines);
+        List<string> sampleLines = sample.Lines().ToList();
+        (totalCodeLength, totalMemoryLength) = Part1(sampleLines);
         Console.WriteLine($"Part 1: {totalCodeLength - totalMemoryLength}");
 
-        lines = File.ReadLines("input.txt");
-        (totalCodeLength, totalMemoryLength) = Part1(lines);
+        List<string> inputLines = File.ReadLines("input.txt").ToList();
+        (totalCodeLength, totalMemoryLength) = Part1(inputLines);
         Console.WriteLine($"Part 1: {totalCodeLength - totalMemoryLength}");
 
         int totalNewLength;
-        lines = sampleLines.Lines();
-        (totalCodeLength, totalNewLength) = Part2(lines);
+        (totalCodeLength, totalNewLength) = Part2(sampleLines);
         Console.WriteLine($"Part 2: {totalNewLength - totalCodeLength}");
         
-        lines = File.ReadLines("input.txt");
-        (totalCodeLength, totalNewLength) = Part2(lines);
+        (totalCodeLength, totalNewLength) = Part2(inputLines);
         Console.WriteLine($"Part 2: {totalNewLength - totalCodeLength}");
     }
 
