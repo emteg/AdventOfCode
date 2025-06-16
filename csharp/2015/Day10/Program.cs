@@ -4,8 +4,9 @@ public static class Program
 {
     public static void Main()
     {
-        //Console.WriteLine($"Part 1: {LookAndSay("1", 5).Length}");
-        Console.WriteLine($"Part 1: {LookAndSay("3113322113", 50).Length}");
+        Console.WriteLine($"Part 1: {LookAndSay("1", 5).Length}");
+        Console.WriteLine($"Part 1: {LookAndSay(File.ReadAllText("input.txt"), 40).Length}");
+        Console.WriteLine($"Part 2: {LookAndSay(File.ReadAllText("input.txt"), 50).Length}");
     }
 
     private static string LookAndSay(string s, int iterations)
