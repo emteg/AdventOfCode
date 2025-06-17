@@ -17,4 +17,6 @@ public static class StringExtensions
             yield return line;
         }
     }
+    
+    public static bool IsDigit(this char c) => c is >= '0' and <= '9';
 }
