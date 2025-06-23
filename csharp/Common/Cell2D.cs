@@ -5,9 +5,13 @@ public class Cell2D
     public readonly int X;
     public readonly int Y;
     public Cell2D? Up { get; private set; }
+    public Cell2D? UpRight { get; private set; }
     public Cell2D? Right { get; private set; }
+    public Cell2D? DownRight { get; private set; }
     public Cell2D? Down { get; private set; }
+    public Cell2D? DownLeft { get; private set; }
     public Cell2D? Left { get; private set; }
+    public Cell2D? UpLeft { get; private set; }
     
     public Cell2D() {}
 
@@ -24,11 +28,25 @@ public class Cell2D
             up.Down = this;
     }
     
+    public void ConnectUpRight(Cell2D upRight, bool bothWays = true)
+    {
+        UpRight = upRight;
+        if (bothWays)
+            upRight.DownLeft = this;
+    }
+    
     public void ConnectRight(Cell2D right, bool bothWays = true)
     {
         Right = right;
         if (bothWays)
             right.Left = this;
+    }
+    
+    public void ConnectDownRight(Cell2D downRight, bool bothWays = true)
+    {
+        DownRight = downRight;
+        if (bothWays)
+            downRight.UpLeft = this;
     }
     
     public void ConnectDown(Cell2D down, bool bothWays = true)
@@ -38,10 +56,24 @@ public class Cell2D
             down.Up = this;
     }
     
+    public void ConnectDownLeft(Cell2D downLeft, bool bothWays = true)
+    {
+        DownLeft = downLeft;
+        if (bothWays)
+            downLeft.UpRight = this;
+    }
+    
     public void ConnectLeft(Cell2D left, bool bothWays = true)
     {
         Left = left;
         if (bothWays)
             left.Right = this;
+    }
+    
+    public void ConnectUpLeft(Cell2D upLeft, bool bothWays = true)
+    {
+        UpLeft = upLeft;
+        if (bothWays)
+            upLeft.DownRight = this;
     }
 }
