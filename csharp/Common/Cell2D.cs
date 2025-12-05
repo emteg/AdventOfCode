@@ -12,6 +12,32 @@ public class Cell2D
     public Cell2D? DownLeft { get; private set; }
     public Cell2D? Left { get; private set; }
     public Cell2D? UpLeft { get; private set; }
+
+    /// <summary>
+    /// Enumerates all non-null neighbors starting at 'up' and going clockwise
+    /// </summary>
+    public IEnumerable<Cell2D> Neighbors
+    {
+        get
+        {
+            if (Up is not null)
+                yield return Up;
+            if (UpRight is not null)
+                yield return UpRight;
+            if (Right is not null)
+                yield return Right;
+            if (DownRight is not null)
+                yield return DownRight;
+            if (Down is not null)
+                yield return Down;
+            if (DownLeft is not null)
+                yield return DownLeft;
+            if (Left is not null)
+                yield return Left;
+            if (UpLeft is not null)
+                yield return UpLeft;
+        }
+    }
     
     public Cell2D() {}
 
